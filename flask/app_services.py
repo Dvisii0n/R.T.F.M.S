@@ -59,3 +59,45 @@ def login():
     except Exception:
         traceback.print_exc()
         abort(500)
+
+
+def create_alert():
+    try:
+        req_body = request.get_json()
+        data = (
+            req_body["descripcion"],
+            req_body["latitud"],
+            req_body["longitud"],
+            req_body["num_detecciones"],
+            req_body["peligro"],
+        )
+        cursor.execute(
+            "INSERT INTO alertas (descripcion, latitud, longitud, num_detecciones, peligro) VALUES (%s, %s, %s, %s, %s)",
+            data,
+        )
+        conn.commit()
+        return {"success": "Alert created"}
+
+    except Exception:
+        traceback.print_exc()
+        abort(500)
+
+
+def get_alerts():
+    try:
+        cursor.execute("SELECT * FROM alertas")
+        alerts = cursor.fetchall()
+        return alerts
+    except Exception:
+        traceback.print_exc()
+        abort(500)
+
+
+def get_alert(alertId):
+    try:
+        cursor.execute("SELECT * FROM alertas WHERE id = %s", (alertId,))
+        alert = cursor.fetchone()
+        return alert
+    except Exception:
+        traceback.print_exc()
+        abort(500)

@@ -33,8 +33,22 @@ def login_post():
     return app_services.login()
 
 
-# crear alerta
-# ver alertas
+@app.get(f"{base_url}/alerts")
+@require_auth
+def alerts_get():
+    return app_services.get_alerts()
+
+
+@app.post(f"{base_url}/alerts")
+@require_auth
+def alerts_post():
+    return app_services.create_alert()
+
+
+@app.get(f"{base_url}/alerts/<int:alertId>")
+@require_auth
+def alert_get(alertId):
+    return app_services.get_alert(alertId)
 
 
 @app.errorhandler(404)
