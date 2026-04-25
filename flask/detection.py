@@ -8,9 +8,10 @@ cap.set(4, 480)
 model_path = "test_model.pt"
 class_names = ["person"]
 
+model = YOLO(model_path)
 
-def run_yolo(img, model_path, class_names):
-    model = YOLO(model_path)
+
+def run_yolo(img, class_names):
     results = model(img, stream=True)
 
     for result in results:
