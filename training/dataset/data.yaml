@@ -1,0 +1,6 @@
+path: D:\E_wally\R.T.F.M.S\training\dataset
+train: images/train
+val: images/val
+
+nc: 1
+names: ["fuego"]
