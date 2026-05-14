@@ -1,211 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard – TK</title>
-  <link rel="stylesheet" href="dashboard.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard – TK</title>
+		<link rel="stylesheet" href="dashboard.css" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<main class="main">
+			<div class="main-header">
+				<div>
+					<h2>Panel de Control</h2>
+					<p id="saludo">Bienvenido</p>
+				</div>
+				<div id="header-btn"></div>
+			</div>
 
-  <main class="main">
+			<div class="kpi-grid">
+				<div class="kpi-card">
+					<div class="kpi-label">Nivel de Riesgo</div>
+					<div class="kpi-value riesgo-alto">Alto</div>
+				</div>
+				<div class="kpi-card">
+					<div class="kpi-label">Alertas Activas</div>
+					<div class="kpi-value">03</div>
+				</div>
+				<div class="kpi-card">
+					<div class="kpi-label">Temperatura</div>
+					<div class="kpi-value">37°C</div>
+				</div>
+				<div class="kpi-card">
+					<div class="kpi-label">Estado del Sistema</div>
+					<div class="kpi-value estado-activo">Activo</div>
+				</div>
+			</div>
 
+			<div class="dashboard-grid">
+				<div class="col-left">
+					<div class="panel">
+						<div class="panel-title">
+							<span> Historial de Alertas</span>
+							<button class="btn-toggle" onclick="togglePanel(this)">－</button>
+						</div>
+						<div class="panel-body">
+							<div class="alertas-lista">
+								<div class="alerta-item nivel-rojo">
+									<div class="alerta-dot"></div>
+									<div class="alerta-texto">
+										<strong>Incendio en Almacén</strong>
+										<span class="alerta-hora">Hoy, 14:32</span>
+									</div>
+								</div>
+								<div class="alerta-item nivel-amarillo">
+									<div class="alerta-dot"></div>
+									<div class="alerta-texto">
+										<strong>Alta Temperatura</strong>
+										<span class="alerta-hora">Hoy, 12:45</span>
+									</div>
+								</div>
+								<div class="alerta-item nivel-naranja">
+									<div class="alerta-dot"></div>
+									<div class="alerta-texto">
+										<strong>Humo Detectado</strong>
+										<span class="alerta-hora">Hoy, 11:20</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-    <div class="main-header">
-      <div>
-        <h2>Panel de Control</h2>
-        <p id="saludo">Bienvenido</p>
-      </div>
-      <div id="header-btn"></div>
-    </div>
+					<div class="panel">
+						<div class="panel-title">
+							<span> Sensores</span>
+							<button class="btn-toggle" onclick="togglePanel(this)">－</button>
+						</div>
+						<div class="panel-body">
+							<div class="sensores-lista">
+								<div class="sensor-fila">
+									<span class="sensor-nombre">Humo:</span>
+									<span class="sensor-val alto">Elevado</span>
+								</div>
+								<div class="sensor-fila">
+									<span class="sensor-nombre">Temperatura:</span>
+									<span class="sensor-val">37°C</span>
+								</div>
+								<div class="sensor-fila">
+									<span class="sensor-nombre">Gas:</span>
+									<span class="sensor-val normal">Normal</span>
+								</div>
+							</div>
+							<div class="sensores-extra">
+								<div class="sensor-mini">
+									<div class="sensor-mini-lbl">Humedad</div>
+									<div class="sensor-mini-val">45%</div>
+								</div>
+								<div class="sensor-mini">
+									<div class="sensor-mini-lbl">Nivel de Gas</div>
+									<div class="sensor-mini-val">15%</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
+				<div class="col-center">
+					<div class="panel">
+						<div class="panel-title">
+							<span> Cámara</span>
+						</div>
+						<div class="panel-body">
+							<div class="camara-wrapper">
+								<div class="camara-badge">Transmisión en vivo</div>
+								<img
+									class="camara-feed"
+									src="http://localhost:5000/api/v1/stream"
+								/>
+							</div>
+							<div class="controles-titulo">Controles</div>
+							<div class="controles">
+								<button class="btn-control">Alarma Sonora</button>
+								<button class="btn-control">Rociadores</button>
+								<button class="btn-control btn-emergencia">
+									Notificar Emergencia
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-label">Nivel de Riesgo</div>
-        <div class="kpi-value riesgo-alto">Alto</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Alertas Activas</div>
-        <div class="kpi-value">03</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Temperatura</div>
-        <div class="kpi-value">37°C</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Estado del Sistema</div>
-        <div class="kpi-value estado-activo">Activo</div>
-      </div>
-    </div>
+				<!-- Columna derecha -->
+				<div class="col-right">
+					<!-- Panel Estadísticas -->
+					<div class="panel">
+						<div class="panel-title">
+							<span> Estadísticas</span>
+							<button class="btn-toggle" onclick="togglePanel(this)">－</button>
+						</div>
+						<div class="panel-body">
+							<div class="stats-lista">
+								<div class="stat-fila">
+									<span class="stat-nombre">Incidentes:</span>
+									<span class="stat-val">15</span>
+								</div>
+								<div class="stat-fila sep"></div>
+								<div class="stat-fila">
+									<span class="stat-nombre">Falsas Alarmas:</span>
+									<span class="stat-val">4</span>
+								</div>
+								<div class="stat-fila sep"></div>
+								<div class="stat-fila">
+									<span class="stat-nombre">Tiempo de Respuesta:</span>
+									<span class="stat-val">1:25 <small>min</small></span>
+								</div>
+							</div>
+						</div>
+					</div>
 
+					<!-- Panel Mapa -->
+					<div class="panel">
+						<div class="panel-title">
+							<span> Mapa de Ubicación</span>
+							<button class="btn-toggle" onclick="togglePanel(this)">－</button>
+						</div>
+						<div class="panel-body">
+							<div class="mapa-mini-wrapper" onclick="abrirMapa()">
+								<div id="mapa-mini"></div>
+								<div class="mapa-overlay"><span> Ampliar</span></div>
+							</div>
+							<div class="mapa-info">
+								<div class="mapa-badge-alerta">⚠ Incendio en Almacén</div>
+								<div class="mapa-hora-txt">Hoy, 14:32</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
 
-    <div class="dashboard-grid">
+		<!-- MODAL MAPA -->
+		<div class="modal-fondo" id="modal-mapa">
+			<div class="modal-caja">
+				<div class="modal-header">
+					<h3>Ubicación del Incidente – Mazatlán, Sinaloa</h3>
+					<button class="btn-cerrar" onclick="cerrarMapa()">✕ Cerrar</button>
+				</div>
+				<div id="mapa-grande"></div>
+			</div>
+		</div>
 
-
-      <div class="col-left">
-
-
-        <div class="panel">
-          <div class="panel-title">
-            <span> Historial de Alertas</span>
-            <button class="btn-toggle" onclick="togglePanel(this)">－</button>
-          </div>
-          <div class="panel-body">
-            <div class="alertas-lista">
-              <div class="alerta-item nivel-rojo">
-                <div class="alerta-dot"></div>
-                <div class="alerta-texto">
-                  <strong>Incendio en Almacén</strong>
-                  <span class="alerta-hora">Hoy, 14:32</span>
-                </div>
-              </div>
-              <div class="alerta-item nivel-amarillo">
-                <div class="alerta-dot"></div>
-                <div class="alerta-texto">
-                  <strong>Alta Temperatura</strong>
-                  <span class="alerta-hora">Hoy, 12:45</span>
-                </div>
-              </div>
-              <div class="alerta-item nivel-naranja">
-                <div class="alerta-dot"></div>
-                <div class="alerta-texto">
-                  <strong>Humo Detectado</strong>
-                  <span class="alerta-hora">Hoy, 11:20</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="panel">
-          <div class="panel-title">
-            <span> Sensores</span>
-            <button class="btn-toggle" onclick="togglePanel(this)">－</button>
-          </div>
-          <div class="panel-body">
-            <div class="sensores-lista">
-              <div class="sensor-fila">
-                <span class="sensor-nombre">Humo:</span>
-                <span class="sensor-val alto">Elevado</span>
-              </div>
-              <div class="sensor-fila">
-                <span class="sensor-nombre">Temperatura:</span>
-                <span class="sensor-val">37°C</span>
-              </div>
-              <div class="sensor-fila">
-                <span class="sensor-nombre">Gas:</span>
-                <span class="sensor-val normal">Normal</span>
-              </div>
-            </div>
-            <div class="sensores-extra">
-              <div class="sensor-mini">
-                <div class="sensor-mini-lbl">Humedad</div>
-                <div class="sensor-mini-val">45%</div>
-              </div>
-              <div class="sensor-mini">
-                <div class="sensor-mini-lbl">Nivel de Gas</div>
-                <div class="sensor-mini-val">15%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="col-center">
-        <div class="panel">
-          <div class="panel-title">
-            <span> Cámara</span>
-          </div>
-          <div class="panel-body">
-            <div class="camara-wrapper">
-              <div class="camara-badge"> Transmisión en vivo</div>
-              <div class="camara-feed">
-                <div class="camara-placeholder">
-                  <span class="cam-icon"></span>
-                  <p>Cámara de Seguridad</p>
-                  <small>Sin señal de video</small>
-                </div>
-              </div>
-            </div>
-            <div class="controles-titulo">Controles</div>
-            <div class="controles">
-              <button class="btn-control"> Alarma Sonora</button>
-              <button class="btn-control"> Rociadores</button>
-              <button class="btn-control btn-emergencia"> Notificar Emergencia</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Columna derecha -->
-      <div class="col-right">
-
-        <!-- Panel Estadísticas -->
-        <div class="panel">
-          <div class="panel-title">
-            <span> Estadísticas</span>
-            <button class="btn-toggle" onclick="togglePanel(this)">－</button>
-          </div>
-          <div class="panel-body">
-            <div class="stats-lista">
-              <div class="stat-fila">
-                <span class="stat-nombre">Incidentes:</span>
-                <span class="stat-val">15</span>
-              </div>
-              <div class="stat-fila sep"></div>
-              <div class="stat-fila">
-                <span class="stat-nombre">Falsas Alarmas:</span>
-                <span class="stat-val">4</span>
-              </div>
-              <div class="stat-fila sep"></div>
-              <div class="stat-fila">
-                <span class="stat-nombre">Tiempo de Respuesta:</span>
-                <span class="stat-val">1:25 <small>min</small></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Panel Mapa -->
-        <div class="panel">
-          <div class="panel-title">
-            <span> Mapa de Ubicación</span>
-            <button class="btn-toggle" onclick="togglePanel(this)">－</button>
-          </div>
-          <div class="panel-body">
-            <div class="mapa-mini-wrapper" onclick="abrirMapa()">
-              <div id="mapa-mini"></div>
-              <div class="mapa-overlay"><span> Ampliar</span></div>
-            </div>
-            <div class="mapa-info">
-              <div class="mapa-badge-alerta">⚠ Incendio en Almacén</div>
-              <div class="mapa-hora-txt">Hoy, 14:32</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- MODAL MAPA -->
-  <div class="modal-fondo" id="modal-mapa">
-    <div class="modal-caja">
-      <div class="modal-header">
-        <h3> Ubicación del Incidente – Mazatlán, Sinaloa</h3>
-        <button class="btn-cerrar" onclick="cerrarMapa()">✕ Cerrar</button>
-      </div>
-      <div id="mapa-grande"></div>
-    </div>
-  </div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="dashboard.js"></script>
-</body>
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+		<script src="dashboard.js"></script>
+	</body>
 </html>
