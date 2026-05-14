@@ -11,6 +11,7 @@ import json
 
 connected_clients = set()
 
+
 async def websocket_handler(websocket):
     """maneja la conexión entrante del cliente WebSocket
     añade el cliente al conjunto de clientes conectados y espera hasta que se
@@ -22,13 +23,14 @@ async def websocket_handler(websocket):
     finally:
         connected_clients.remove(websocket)
 
+
 async def send_event(request):
     """recibe eventos desde Flask y los reenvía al front,
-     espera un JSON con la clave 'message'.
+    espera un JSON con la clave 'message'.
     """
     try:
         data = await request.json()
-        message = data.get('message', '')
+        message = data.get("message", "")
         print(f"Evento recibido desde Flask: {message}")
 
         # reenviar mensaje al cliente
@@ -39,25 +41,27 @@ async def send_event(request):
             except Exception:
                 connected_clients.discard(client)
 
-        return web.Response(text='Evento enviado a los clientes')
+        return web.Response(text="Evento enviado a los clientes")
     except Exception as e:
-        return web.Response(text=f'Error: {str(e)}', status=400)
+        return web.Response(text=f"Error: {str(e)}", status=400)
+
 
 async def main():
     app = web.Application()
-    app.router.add_post('/send_event', send_event)
+    app.router.add_post("/send_event", send_event)
 
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, 'localhost', 8081)
+    site = web.TCPSite(runner, "localhost", 8081)
     await site.start()
 
-    await websockets.serve(websocket_handler, 'localhost', 8080)
+    await websockets.serve(websocket_handler, "localhost", 8080)
 
     print("Servidor WebSocket ejecutándose en ws://localhost:8080")
     print("Servidor HTTP ejecutándose en http://localhost:8081/send_event")
 
     await asyncio.Future()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     asyncio.run(main())
