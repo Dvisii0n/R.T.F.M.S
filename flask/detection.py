@@ -38,7 +38,7 @@ def generate_frames():
     while True:
         success, img = cap.read()
 
-        run_yolo(img, model_path, class_names)
+        run_yolo(img, class_names)
         _, buffer = cv2.imencode(".jpg", img)
         frame_bytes = buffer.tobytes()
 
