@@ -25,19 +25,16 @@ async def websocket_handler(websocket):
 
 
 async def send_event(request):
-    """recibe eventos desde Flask y los reenvía al front,
-    espera un JSON con la clave 'message'.
-    """
     try:
         data = await request.json()
-        message = data.get("message", "")
-        print(f"Evento recibido desde Flask: {message}")
+        detections = data
+        print(f"Flask event:{detections}")
 
         # reenviar mensaje al cliente
         for client in connected_clients.copy():
             try:
-                await client.send(json.dumps(message))
-                print(f"Mensaje enviado al cliente: {message}")
+                await client.send(json.dumps(detections))
+                print(f"Mensaje enviado al cliente: {detections}")
             except Exception:
                 connected_clients.discard(client)
 
