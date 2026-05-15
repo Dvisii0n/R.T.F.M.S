@@ -190,11 +190,24 @@ body {
 	font-size: 2rem;
 	letter-spacing: 1px;
 }
-.riesgo-alto {
+.nivel-riesgo[nivel="ALTO"] {
 	color: var(--rojo);
 }
-.estado-activo {
+
+.nivel-riesgo[nivel="MEDIO"] {
+	color: var(--naranja);
+}
+
+.nivel-riesgo[nivel="BAJO"] {
+	color: var(--amarillo);
+}
+
+.estado[estado="ACTIVO"] {
 	color: var(--verde);
+}
+
+.estado[estado="INACTIVO"] {
+	color: var(--rojo);
 }
 
 .dashboard-grid {
@@ -234,6 +247,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	height: 400px;
+	overflow: auto;
 }
 .alerta-item {
 	display: flex;
@@ -244,13 +259,14 @@ body {
 	background: var(--bg3);
 	border-left: 3px solid transparent;
 }
-.alerta-item.nivel-rojo {
+
+.alerta-item[nivel="ALTO"] {
 	border-color: var(--rojo);
 }
-.alerta-item.nivel-amarillo {
+.alerta-item[nivel="BAJO"] {
 	border-color: var(--amarillo);
 }
-.alerta-item.nivel-naranja {
+.alerta-item[nivel="MEDIO"] {
 	border-color: var(--naranja);
 }
 .alerta-dot {

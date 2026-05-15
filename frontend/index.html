@@ -1,155 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ExtinGuard - Seguridad Contra Incendios</title>
-  <link rel="stylesheet" href="index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>R.T.F.M.S - Seguridad Contra Incendios</title>
+		<link rel="stylesheet" href="styles/index.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!-- NAVBAR -->
+		<nav>
+			<a class="nav-logo" href="index.html">
+				<div class="nav-logo-icon"></div>
+				<span>R.T.F.M.S</span>
+			</a>
+			<div class="nav-links">
+				<a href="#quienes-somos">Nosotros</a>
+				<a href="#caracteristicas">Servicios</a>
+				<a href="#contacto">Contacto</a>
+				<a class="btn btn-register" href="dashboard.html">Dashboard</a>
+			</div>
+		</nav>
 
-  <!-- NAVBAR -->
-  <nav>
-    <a class="nav-logo" href="index.html">
-      <div class="nav-logo-icon"></div>
-      <span>ExtinGuard</span>
-    </a>
-    <div class="nav-links">
-      <a href="#quienes-somos">Nosotros</a>
-      <a href="#caracteristicas">Servicios</a>
-      <a href="#contacto">Contacto</a>
-      <a class="btn btn-login" href="inicio_de_sesion.html">Iniciar Sesión</a>
-      <a class="btn btn-register" href="registro.html">Registro</a>
-    </div>
-  </nav>
+		<!-- HERO -->
+		<section class="hero">
+			<div class="hero-glow"></div>
+			<div class="hero-content">
+				<div class="hero-badge">Sistema Inteligente</div>
+				<h1>R.T.F.M.S</h1>
+				<p>
+					Real Time Fire Monitor System, Sistema inteligente de detección de
+					incendios que identifica el tipo de fuego mediante cámara y actúa
+					automáticamente con el extintor adecuado.
+				</p>
+				<div class="hero-btns">
+					<a href="dashboard.html" class="btn btn-register">Dashboard</a>
+					<a href="#quienes-somos" class="btn btn-outline">Conoce más</a>
+				</div>
+			</div>
+		</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-badge"> Sistema Inteligente</div>
-      <h1>ExtinGuard</h1>
-      <p>Sistema inteligente de detección de incendios que identifica el tipo de fuego mediante cámara y actúa automáticamente con el extintor adecuado.</p>
-      <div class="hero-btns">
-        <a href="registro.html" class="btn btn-register">Comenzar Ahora</a>
-        <a href="#quienes-somos" class="btn btn-outline">Conoce más</a>
-      </div>
-    </div>
-  </section>
+		<!-- QUIÉNES SOMOS -->
+		<section class="seccion" id="quienes-somos">
+			<div class="seccion-inner">
+				<div class="etiqueta">Proyecto</div>
+				<h2>Tecnología aplicada a la prevención de incendios</h2>
+				<p class="texto-centro">
+					Este proyecto presenta un sistema inteligente capaz de
+					<strong>detectar incendios mediante visión por cámara</strong>,
+					identificar el tipo de fuego y activar automáticamente el
+					<strong>extintor adecuado</strong> para su control.
+				</p>
+				<div class="stats">
+					<div class="stat">
+						<span class="numero">IA</span>
+						<span class="label">Detección inteligente</span>
+					</div>
+					<div class="stat">
+						<span class="numero">2</span>
+						<span class="label">Tipos de extintores</span>
+					</div>
+					<div class="stat">
+						<span class="numero">Auto</span>
+						<span class="label">Respuesta automática</span>
+					</div>
+					<div class="stat">
+						<span class="numero">Cam</span>
+						<span class="label">Análisis por cámara</span>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <!-- QUIÉNES SOMOS -->
-  <section class="seccion" id="quienes-somos">
-    <div class="seccion-inner">
-      <div class="etiqueta">Proyecto</div>
-      <h2>Tecnología aplicada a la prevención de incendios</h2>
-      <p class="texto-centro">
-        Este proyecto presenta un sistema inteligente capaz de <strong>detectar incendios mediante visión por cámara</strong>,
-        identificar el tipo de fuego y activar automáticamente el <strong>extintor adecuado</strong> para su control.
-      </p>
-      <div class="stats">
-        <div class="stat">
-          <span class="numero">IA</span>
-          <span class="label">Detección inteligente</span>
-        </div>
-        <div class="stat">
-          <span class="numero">2</span>
-          <span class="label">Tipos de extintores</span>
-        </div>
-        <div class="stat">
-          <span class="numero">Auto</span>
-          <span class="label">Respuesta automática</span>
-        </div>
-        <div class="stat">
-          <span class="numero">Cam</span>
-          <span class="label">Análisis por cámara</span>
-        </div>
-      </div>
-    </div>
-  </section>
+		<!-- SERVICIOS -->
+		<section class="seccion fondo-oscuro" id="caracteristicas">
+			<div class="seccion-inner">
+				<div class="etiqueta etiqueta-roja">Funcionalidades</div>
+				<h2 class="blanco">¿Qué hace nuestro sistema?</h2>
+				<p class="texto-centro gris">
+					Un sistema automatizado que detecta, analiza y actúa ante incendios.
+				</p>
+				<div class="tarjetas">
+					<div class="tarjeta">
+						<div class="icono"></div>
+						<h4>Detección por Cámara</h4>
+						<p>
+							Analiza en tiempo real el entorno mediante visión artificial para
+							identificar incendios.
+						</p>
+					</div>
+					<div class="tarjeta">
+						<div class="icono"></div>
+						<h4>Clasificación de Fuego</h4>
+						<p>
+							Determina el tipo de fuego (eléctrico o común) para tomar la mejor
+							decisión.
+						</p>
+					</div>
+					<div class="tarjeta">
+						<div class="icono"></div>
+						<h4>Activación Automática</h4>
+						<p>
+							El sistema actúa sin intervención humana al detectar una situación
+							de riesgo.
+						</p>
+					</div>
+					<div class="tarjeta">
+						<div class="icono"></div>
+						<h4>Extintor Adecuado</h4>
+						<p>
+							Selecciona entre dos tipos de extintores según el tipo de incendio
+							detectado.
+						</p>
+					</div>
+					<div class="tarjeta">
+						<div class="icono"></div>
+						<h4>Monitoreo en Tiempo Real</h4>
+						<p>
+							Permite observar el estado del sistema y alertas en todo momento.
+						</p>
+					</div>
+					<div class="tarjeta">
+						<div class="icono"></div>
+						<h4>Prototipo Innovador</h4>
+						<p>
+							Proyecto enfocado en la automatización y seguridad mediante
+							tecnología inteligente.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <!-- SERVICIOS -->
-  <section class="seccion fondo-oscuro" id="caracteristicas">
-    <div class="seccion-inner">
-      <div class="etiqueta etiqueta-roja">Funcionalidades</div>
-      <h2 class="blanco">¿Qué hace nuestro sistema?</h2>
-      <p class="texto-centro gris">Un sistema automatizado que detecta, analiza y actúa ante incendios.</p>
-      <div class="tarjetas">
-        <div class="tarjeta">
-          <div class="icono"></div>
-          <h4>Detección por Cámara</h4>
-          <p>Analiza en tiempo real el entorno mediante visión artificial para identificar incendios.</p>
-        </div>
-        <div class="tarjeta">
-          <div class="icono"></div>
-          <h4>Clasificación de Fuego</h4>
-          <p>Determina el tipo de fuego (eléctrico o común) para tomar la mejor decisión.</p>
-        </div>
-        <div class="tarjeta">
-          <div class="icono"></div>
-          <h4>Activación Automática</h4>
-          <p>El sistema actúa sin intervención humana al detectar una situación de riesgo.</p>
-        </div>
-        <div class="tarjeta">
-          <div class="icono"></div>
-          <h4>Extintor Adecuado</h4>
-          <p>Selecciona entre dos tipos de extintores según el tipo de incendio detectado.</p>
-        </div>
-        <div class="tarjeta">
-          <div class="icono"></div>
-          <h4>Monitoreo en Tiempo Real</h4>
-          <p>Permite observar el estado del sistema y alertas en todo momento.</p>
-        </div>
-        <div class="tarjeta">
-          <div class="icono"></div>
-          <h4>Prototipo Innovador</h4>
-          <p>Proyecto enfocado en la automatización y seguridad mediante tecnología inteligente.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contacto">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <p> Proyecto académico – Mazatlán, Sinaloa</p>
-        <p> <a href="tel:+526691234567">----------------:]</a></p>
-        <p> <a href="mailto:contacto@extinguard.com">contacto@extinguard.com</a></p>
-        <p>Disponible para demostraciones</p>
-      </div>
-      <div class="footer-col">
-        <h4>Redes Sociales</h4>
-        <p>Síguenos para ver avances del proyecto:</p>
-        <div class="redes">
-          <a class="red-icono red-fb" href="https://facebook.com" target="_blank" title="Facebook">
-            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a class="red-icono red-ig" href="https://instagram.com" target="_blank" title="Instagram">
-            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
-          </a>
-          <a class="red-icono red-wa" href="https://wa.me/526691234567" target="_blank" title="WhatsApp">
-            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          </a>
-          <a class="red-icono red-yt" href="https://youtube.com" target="_blank" title="YouTube">
-            <svg width="22" height="20" fill="white" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#ff0000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navegación</h4>
-        <a href="index.html">Inicio</a>
-        <a href="#quienes-somos">Nosotros</a>
-        <a href="#caracteristicas">Servicios</a>
-        <a href="inicio_de_sesion.html">Iniciar Sesión</a>
-        <a href="registro.html">Registro</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 ExtinGuard – Proyecto tecnológico | Mazatlán, Sinaloa</p>
-    </div>
-  </footer>
-
-</body>
+		<!-- FOOTER -->
+		<footer id="contacto">
+			<div class="footer-grid">
+				<div class="footer-col">
+					<h4>Contacto</h4>
+					<p>Proyecto académico – Mazatlán, Sinaloa</p>
+					<p><a href="tel:+526691234567">----------------:]</a></p>
+					<p>
+						<a href="mailto:contacto@extinguard.com">contacto@extinguard.com</a>
+					</p>
+					<p>Disponible para demostraciones</p>
+				</div>
+				<div class="footer-col">
+					<h4>Redes Sociales</h4>
+					<p>Síguenos para ver avances del proyecto:</p>
+					<div class="redes">
+						<a
+							class="red-icono red-fb"
+							href="https://facebook.com"
+							target="_blank"
+							title="Facebook"
+						>
+							<svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+								<path
+									d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+								/>
+							</svg>
+						</a>
+						<a
+							class="red-icono red-ig"
+							href="https://instagram.com"
+							target="_blank"
+							title="Instagram"
+						>
+							<svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+								<rect x="2" y="2" width="20" height="20" rx="5" />
+								<circle
+									cx="12"
+									cy="12"
+									r="4"
+									fill="none"
+									stroke="white"
+									stroke-width="2"
+								/>
+								<circle cx="17.5" cy="6.5" r="1.5" fill="white" />
+							</svg>
+						</a>
+						<a
+							class="red-icono red-wa"
+							href="https://wa.me/526691234567"
+							target="_blank"
+							title="WhatsApp"
+						>
+							<svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+								<path
+									d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+								/>
+							</svg>
+						</a>
+						<a
+							class="red-icono red-yt"
+							href="https://youtube.com"
+							target="_blank"
+							title="YouTube"
+						>
+							<svg width="22" height="20" fill="white" viewBox="0 0 24 24">
+								<path
+									d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
+								/>
+								<polygon
+									fill="#ff0000"
+									points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
+								/>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="footer-col">
+					<h4>Navegación</h4>
+					<a href="index.html">Inicio</a>
+					<a href="#quienes-somos">Nosotros</a>
+					<a href="#caracteristicas">Servicios</a>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>© 2025 ExtinGuard – Proyecto tecnológico | Mazatlán, Sinaloa</p>
+			</div>
+		</footer>
+	</body>
 </html>
