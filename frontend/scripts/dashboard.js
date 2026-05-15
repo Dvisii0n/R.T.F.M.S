@@ -1,36 +1,3 @@
-// ================================================
-// dashboard.js
-// ================================================
-
-const usuario = localStorage.getItem("usuario") || "";
-const nombre =
-	localStorage.getItem("nombre") || (usuario ? usuario.split("@")[0] : "");
-const sesionActiva = !!localStorage.getItem("usuario");
-
-// Saludo
-document.getElementById("saludo").textContent = nombre
-	? "Bienvenido, " + nombre
-	: "Bienvenido";
-
-// Header: mostrar avatar o botón de sesión
-const headerBtn = document.getElementById("header-btn");
-if (sesionActiva && nombre) {
-	const inicial = nombre.charAt(0).toUpperCase();
-	headerBtn.innerHTML = `
-    <div class="avatar-user" title="${nombre} — ${usuario}">
-      ${inicial}
-      <div class="avatar-tooltip">${nombre}<br><small>${usuario}</small></div>
-    </div>
-    <button class="btn-logout-header" onclick="cerrarSesion()">Cerrar sesión</button>
-  `;
-}
-
-function cerrarSesion() {
-	localStorage.removeItem("usuario");
-	localStorage.removeItem("nombre");
-	window.location.href = "index.html";
-}
-
 // ===== TOGGLE PANELS =====
 function togglePanel(btn) {
 	const panel = btn.closest(".panel");
