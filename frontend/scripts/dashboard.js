@@ -1,3 +1,4 @@
+import { API_URL } from "./globales.js";
 // ===== TOGGLE PANELS =====
 function togglePanel(btn) {
 	const panel = btn.closest(".panel");
@@ -63,3 +64,5 @@ function cerrarMapa() {
 document.getElementById("modal-mapa").addEventListener("click", function (e) {
 	if (e.target === this) cerrarMapa();
 });
+
+document.querySelector(".camara-feed").setAttribute("src", `${API_URL}/stream`);
